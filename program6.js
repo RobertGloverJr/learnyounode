@@ -5,7 +5,7 @@ console.log('program6:: logic point 2');
 var fullPathToDir = process.argv[2];
 
 console.log('program6:: logic point 3');
-var fileExtension = "." + process.argv[3];
+var fileExtension = process.argv[3];
 
 console.log('program6:: logic point 4');
 var myCallbackFunc = function(err, arrayOfFilenames){
@@ -13,6 +13,7 @@ var myCallbackFunc = function(err, arrayOfFilenames){
   if (err) {
     console.log('program6:: logic point 6');
     console.log(err);
+    return;
   } else {
     console.log('program6:: logic point 7');
     arrayOfFilenames.forEach(function(faVal, faIndex, faArray) {
@@ -20,6 +21,9 @@ var myCallbackFunc = function(err, arrayOfFilenames){
       console.log('rdg(forEach faVal): '+faVal);
       console.log('rdg(forEach faIndex): '+faIndex);
       console.log('rdg(forEach faArray): '+faArray);
+      console.log('rdg(forEach faArray.length): '+faArray.length);
+      console.log('\n');
+      return;
     });
   }
   console.log('program6:: logic point 9');
