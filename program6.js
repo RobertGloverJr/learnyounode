@@ -1,34 +1,35 @@
-console.log('program6:: logic point 1');
 var myModule6 = require('./module6.js');
 
-console.log('program6:: logic point 2');
 var fullPathToDir = process.argv[2];
-
-console.log('program6:: logic point 3');
 var fileExtension = process.argv[3];
 
-console.log('program6:: logic point 4');
 var myCallbackFunc = function(err, arrayOfFilenames){
-  console.log('program6:: logic point 5');
   if (err) {
-    console.log('program6:: logic point 6');
     console.log(err);
     return;
   } else {
-    console.log('program6:: logic point 7');
-    arrayOfFilenames.forEach(function(faVal, faIndex, faArray) {
-      console.log('program6:: logic point 8');
-      console.log('rdg(forEach faVal): '+faVal);
-      console.log('rdg(forEach faIndex): '+faIndex);
-      console.log('rdg(forEach faArray): '+faArray);
-      console.log('rdg(forEach faArray.length): '+faArray.length);
-      console.log('\n');
+    arrayOfFilenames.forEach(function(faVal) {
+      console.log(faVal);
       return;
     });
   }
-  console.log('program6:: logic point 9');
 };
-console.log('program6:: logic point 10');
 myModule6(fullPathToDir, fileExtension, myCallbackFunc);
+/*
+Here's the official solution in case you want to compare notes:
+solution.js:
 
-console.log('program6:: logic point 11');
+var filterFn = require('./solution_filter.js')
+var dir = process.argv[2]
+var filterStr = process.argv[3]
+
+filterFn(dir, filterStr, function (err, list) {
+if (err)
+return console.error('There was an error:', err)
+
+list.forEach(function (file) {
+console.log(file)
+})
+})
+
+*/
